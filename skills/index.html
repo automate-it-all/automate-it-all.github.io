@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skills · Automate It All</title>
+<meta name="description" content="Tested agent skills, packaged for working developers">
+<link rel="icon" href="favicon.png">
+<style>
+:root{--c:#4028bd}
+body{margin:0;font:16px/1.5 Inter,system-ui,sans-serif;color:#1a1a1a;background:#fff}
+header{background:var(--c);color:#fff;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:baseline}
+header a{color:#fff;text-decoration:none}
+header .p{opacity:.8;font-size:.9rem;margin-left:auto}
+main{max-width:52rem;margin:0 auto;padding:2rem 1.5rem}
+footer{max-width:52rem;margin:0 auto;padding:2rem 1.5rem;border-top:1px solid #ddd;color:#555;font-size:.9rem}
+footer a{color:var(--c)}
+a.btn{display:inline-block;background:var(--c);color:#fff;padding:.6rem 1rem;border-radius:.4rem;text-decoration:none;font-weight:700}
+</style></head>
+<body>
+<header><a href="https://automate-it-all.win/"><strong>Skills</strong></a><a class="p" href="https://automate-it-all.win/">Automate It All</a></header>
+<main>
+<h1>Ship a homelab or VPS ops skill to your agent in one command</h1>
+<p>Ten AgentSkills-layout skills for running a home server or small VPS:
+reverse proxy, remote access, hardening, bot deployment, backup, health
+checks. Drop a folder under <code>skills/</code> and Claude Code, Hermes or
+any AgentSkills-spec loader reads it straight from <code>SKILL.md</code>.</p>
+
+<h2>What's in the Pack</h2>
+<table style="width:100%;border-collapse:collapse">
+<tr><th style="text-align:left">Skill</th><th style="text-align:left">Tier</th></tr>
+<tr><td>vps-basics</td><td>Free</td></tr>
+<tr><td>backup-restore-drill</td><td>Free</td></tr>
+<tr><td>service-health-check</td><td>Free</td></tr>
+<tr><td>systemd-unit-authoring</td><td>Free</td></tr>
+<tr><td>caddy-reverse-proxy</td><td>Paid</td></tr>
+<tr><td>tailscale-funnel</td><td>Paid</td></tr>
+<tr><td>pi-hardening</td><td>Paid</td></tr>
+<tr><td>telegram-bot-deployment</td><td>Paid</td></tr>
+<tr><td>wan-failover-uplink-guard</td><td>Paid</td></tr>
+<tr><td>wol-wake-and-remote-shutdown</td><td>Paid</td></tr>
+</table>
+<p>Every skill ships with a Docker-driven test under <code>tests/</code>;
+<code>tests/run.sh</code> runs the set. Nine ran and passed in this pack's
+own CI, one is host-specific and skips off Ubuntu.</p>
+
+<h2>One Free Skill, in Full</h2>
+<pre style="white-space:pre-wrap;background:#f6f6f6;padding:1rem;border-radius:.5rem;font-size:.85rem">---
+name: vps-basics
+description: Lock down a fresh VPS or homelab box with ufw and fail2ban.
+version: 0.1.0
+author: agent-skills-pack
+license: MIT
+platforms: [linux]
+---
+
+# VPS Basics: ufw + fail2ban
+
+## Overview
+
+A fresh VPS ships with every port reachable and no brute-force protection.
+This skill closes that gap in two steps: `ufw` denies inbound traffic by
+default and allows only named ports, `fail2ban` bans an IP that fails SSH
+login repeatedly. Do this before any service goes on the box, not after.
+
+## Steps
+
+1. Install both tools:
+
+       apt-get update && apt-get install -y ufw fail2ban
+
+2. Set the firewall's default policy, then open only the ports the box
+   needs. Always open SSH before enabling, or the enable locks you out:
+
+       ufw default deny incoming
+       ufw default allow outgoing
+       ufw allow 22/tcp
+       ufw allow 80/tcp
+       ufw allow 443/tcp
+       ufw --force enable
+
+3. Point fail2ban's SSH jail at the box's real log path and enable it:
+
+       cp references/jail.local /etc/fail2ban/jail.local
+       systemctl enable --now fail2ban</pre>
+
+<h2>Price</h2>
+<p><strong>&euro;19</strong> for the paid six, for the first 30 days this
+pack is live. <strong>&euro;39</strong> after that.</p>
+<p><a class="btn" href="https://buy.stripe.com/test_3cI7sK63jbVo5c72VM1B600">Buy the paid six</a></p>
+
+<h2>FAQ</h2>
+<p><strong>What do I get?</strong> A zip of six SKILL.md folders plus their
+references/ scripts, downloaded straight after payment.</p>
+<p><strong>Which agents read this?</strong> Claude Code reads SKILL.md
+natively; Hermes ran this pack's own test suite; any AgentSkills-spec
+loader reads the same folder layout.</p>
+<p><strong>Is the free half really free?</strong> Yes: the four free skills
+sit in the public repo with no payment step.</p>
+<p><strong>What if a skill doesn't fit my box?</strong> Each SKILL.md names
+its `platforms`; every skill here targets Linux.</p>
+<p><strong>Do you offer a refund?</strong> Yes, within 30 days of purchase:
+write skills@automate-it-all.win.</p>
+<p><strong>Where's the source?</strong>
+<a href="https://github.com/automate-it-all/agent-skills-pack">github.com/automate-it-all/agent-skills-pack</a>,
+free skills and CI included.</p>
+
+</main>
+<footer>skills@automate-it-all.win · <a href="https://automate-it-all.win/">every product</a> · <a href="https://automate-it-all.win/press/">press room</a> · <a href="https://fidel-perez.github.io/portfolio/">who builds this</a></footer>
+</body></html>
