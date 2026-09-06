@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Templates · Automate It All</title>
+<meta name="description" content="Data-engineering starter kits for small data teams">
+<link rel="icon" href="favicon.png">
+<style>
+:root{--c:#bd2898}
+body{margin:0;font:16px/1.5 Inter,system-ui,sans-serif;color:#1a1a1a;background:#fff}
+header{background:var(--c);color:#fff;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:baseline}
+header a{color:#fff;text-decoration:none}
+header .p{opacity:.8;font-size:.9rem;margin-left:auto}
+main{max-width:52rem;margin:0 auto;padding:2rem 1.5rem}
+footer{max-width:52rem;margin:0 auto;padding:2rem 1.5rem;border-top:1px solid #ddd;color:#555;font-size:.9rem}
+footer a{color:var(--c)}
+a.btn{display:inline-block;background:var(--c);color:#fff;padding:.6rem 1rem;border-radius:.4rem;text-decoration:none;font-weight:700}
+</style></head>
+<body>
+<header><a href="https://automate-it-all.win/"><strong>Templates</strong></a><a class="p" href="https://automate-it-all.win/">Automate It All</a></header>
+<main>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Templates · Automate It All</title>
+<meta name="description" content="Data-engineering starter kits for small data teams">
+<link rel="icon" href="favicon.png">
+<style>
+:root{--c:#bd2898}
+body{margin:0;font:16px/1.5 Inter,system-ui,sans-serif;color:#1a1a1a;background:#fff}
+header{background:var(--c);color:#fff;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:baseline}
+header a{color:#fff;text-decoration:none}
+header .p{opacity:.8;font-size:.9rem;margin-left:auto}
+main{max-width:52rem;margin:0 auto;padding:2rem 1.5rem}
+footer{max-width:52rem;margin:0 auto;padding:2rem 1.5rem;border-top:1px solid #ddd;color:#555;font-size:.9rem}
+footer a{color:var(--c)}
+a.btn{display:inline-block;background:var(--c);color:#fff;padding:.6rem 1rem;border-radius:.4rem;text-decoration:none;font-weight:700}
+pre{white-space:pre-wrap;background:#f6f6f6;padding:1rem;border-radius:.5rem;font-size:.85rem}
+</style></head>
+<body>
+<header><a href="https://automate-it-all.win/"><strong>Templates</strong></a><a class="p" href="https://automate-it-all.win/">Automate It All</a></header>
+<main>
+<h1>Three data pipelines, containerized, tested, yours in one command</h1>
+<p>For a small data team that wants a working dbt project, a Dagster
+orchestration, or a Kafka streaming pipeline today, not after a week of
+Docker plumbing. Each kit runs end to end on a laptop with
+<code>make run</code>: no cloud account, no warehouse bill.</p>
+
+<h2>dbt + DuckDB</h2>
+<p>Staging-to-marts dbt project on DuckDB: seeds, staging views, two data
+tests, and an incremental daily mart.</p>
+<pre>dbt_project.yml
+docker-compose.yml
+Dockerfile
+Makefile
+models/marts/dim_customers.sql
+models/marts/fct_orders_daily.sql
+models/marts/fct_orders.sql
+models/marts/schema.yml
+models/staging/schema.yml
+models/staging/stg_customers.sql
+models/staging/stg_orders.sql
+profiles.yml
+README.md
+RUNBOOK.md
+seeds/raw_customers.csv
+seeds/raw_orders.csv
+tests/assert_lifetime_revenue_matches_orders.sql
+tests/assert_no_negative_amounts.sql
+tests/smoke.sh</pre>
+<p><a class="btn" href="https://buy.stripe.com/test_3cIcN43Vbf7Aawr67Y1B601">Buy dbt-duckdb, 39 EUR</a></p>
+
+<h2>Dagster + Postgres</h2>
+<p>Orders pipeline on Dagster and Postgres: assets, two asset checks, a
+daily schedule, and a sensor that watches an inbox folder.</p>
+<pre>dagster_project/db.py
+dagster_project/definitions.py
+dagster_project/__init__.py
+docker-compose.yml
+Dockerfile
+Makefile
+README.md
+RUNBOOK.md
+scripts/check_sensor.py
+scripts/replay.py
+scripts/run_pipeline.py
+tests/smoke.sh</pre>
+<p><a class="btn" href="https://buy.stripe.com/test_28E3cugHX4sW7kfeEu1B602">Buy dagster-postgres, 39 EUR</a></p>
+
+<h2>Kafka Streaming</h2>
+<p>An orders producer and consumer on Kafka: valid rows land in
+<code>orders</code>, rejects go to a dead-letter queue with a reason.</p>
+<pre>docker-compose.yml
+Dockerfile
+Makefile
+README.md
+RUNBOOK.md
+scripts/consumer.py
+scripts/dlq_peek.py
+scripts/producer.py
+tests/smoke.sh</pre>
+<p><a class="btn" href="https://buy.stripe.com/test_28EbJ0gHX7F8bAv3ZQ1B603">Buy kafka-streaming, 39 EUR</a></p>
+
+<h2>Smoke Test, All Three Kits</h2>
+<pre>run-all: dbt-duckdb
+run-all: dbt-duckdb OK in 10s
+run-all: dagster-postgres
+run-all: dagster-postgres OK in 23s
+run-all: kafka-streaming
+run-all: kafka-streaming OK in 59s
+run-all: all kits passed</pre>
+
+<h2>Price</h2>
+<p>One kit: <strong>&euro;39</strong>. All three together:
+<strong>&euro;79</strong>. 30-day refund, no questions.</p>
+<p><a class="btn" href="https://buy.stripe.com/test_9B65kCfDT1gKcEz8g61B604">Buy all three, 79 EUR</a></p>
+
+<h2>FAQ</h2>
+<p><strong>What do I get?</strong> A zip of the kit's Dockerfile, compose
+file, seeds and tests, downloaded straight after payment.</p>
+<p><strong>Do the kits need a cloud account?</strong> No: every kit runs on
+<code>docker compose</code> on a laptop, against sample data.</p>
+<p><strong>Is anything free?</strong> Yes: the layout and each kit's own
+README sit in the public repo below, with no payment step.</p>
+<p><strong>Can I see the tests before buying?</strong> Yes, the smoke-test
+log above is this build's own run, not a mockup.</p>
+<p><strong>Do you offer a refund?</strong> Yes, within 30 days of purchase:
+write skills@automate-it-all.win.</p>
+<p><strong>Where's the source?</strong>
+<a href="https://github.com/automate-it-all/data-pipeline-kits">github.com/automate-it-all/data-pipeline-kits</a>,
+the free skeleton with links back here.</p>
+
+</main>
+<footer>skills@automate-it-all.win &middot; <a href="https://automate-it-all.win/">every product</a> &middot; <a href="https://automate-it-all.win/press/">press room</a> &middot; <a href="https://fidel-perez.github.io/portfolio/">who builds this</a></footer>
+</body></html>
+
+</main>
+<footer>skills@automate-it-all.win · <a href="https://automate-it-all.win/">every product</a> · <a href="https://automate-it-all.win/press/">press room</a> · <a href="https://fidel-perez.github.io/portfolio/">who builds this</a></footer>
+</body></html>
