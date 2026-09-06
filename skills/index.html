@@ -39,8 +39,10 @@ any AgentSkills-spec loader reads it straight from <code>SKILL.md</code>.</p>
 <tr><td>wol-wake-and-remote-shutdown</td><td>Paid</td></tr>
 </table>
 <p>Every skill ships with a Docker-driven test under <code>tests/</code>;
-<code>tests/run.sh</code> runs the set. Nine ran and passed in this pack's
-own CI, one is host-specific and skips off Ubuntu.</p>
+<code>tests/run.sh</code> runs the set. A full checkout runs nine and skips
+one, <code>wan-failover-uplink-guard</code>, which needs two physical
+uplinks. The public repo's CI runs the four free skills and skips the paid
+six, which <code>.gitignore</code> keeps out of that repo.</p>
 
 <h2>One Free Skill, in Full</h2>
 <pre style="white-space:pre-wrap;background:#f6f6f6;padding:1rem;border-radius:.5rem;font-size:.85rem">---
