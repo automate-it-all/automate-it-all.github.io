@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Datos · Automate It All</title>
+<meta name="description" content="Spain's open data through one MCP server">
+<link rel="icon" href="favicon.png">
+<style>
+:root{--c:#28bd77}
+body{margin:0;font:16px/1.5 Inter,system-ui,sans-serif;color:#1a1a1a;background:#fff}
+header{background:var(--c);color:#fff;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:baseline}
+header a{color:#fff;text-decoration:none}
+header .p{opacity:.8;font-size:.9rem;margin-left:auto}
+main{max-width:52rem;margin:0 auto;padding:2rem 1.5rem}
+footer{max-width:52rem;margin:0 auto;padding:2rem 1.5rem;border-top:1px solid #ddd;color:#555;font-size:.9rem}
+footer a{color:var(--c)}
+a.btn{display:inline-block;background:var(--c);color:#fff;padding:.6rem 1rem;border-radius:.4rem;text-decoration:none;font-weight:700}
+</style></head>
+<body>
+<header><a href="https://automate-it-all.win/"><strong>Datos</strong></a><a class="p" href="https://automate-it-all.win/">Automate It All</a></header>
+<main>
+<h1>Gracias. Aquí está tu clave</h1>
+
+<p id="out" style="font-family:ui-monospace,monospace;word-break:break-all;font-size:1.1rem">Leyendo tu suscripción...</p>
+
+<script>
+(async function () {
+  var out = document.getElementById('out');
+  var id = new URLSearchParams(location.search).get('session_id');
+  if (!id) { out.textContent = 'Esta página necesita el session_id que Stripe añade a la URL.'; return; }
+  try {
+    var r = await fetch('https://datos.automate-it-all.win/billing/key?session_id=' + encodeURIComponent(id));
+    var d = await r.json();
+    out.textContent = r.ok
+      ? 'Tu clave: ' + d.key + '  (' + d.included_calls + ' llamadas al mes incluidas)'
+      : 'No hemos podido leerla: ' + (d.detail || r.status);
+  } catch (err) {
+    out.textContent = 'No hemos podido leerla: ' + err;
+  }
+})();
+</script>
+
+<p>La misma clave sale por correo desde
+<a href="mailto:data@automate-it-all.win">data@automate-it-all.win</a>. Guárdala:
+se manda como la cabecera <code>X-API-Key</code> en cada llamada.</p>
+
+<p><a class="btn" href="https://automate-it-all.win/datos/">Volver a la documentación</a></p>
+
+<h2>In English</h2>
+
+<p>Your API key is above, and the same key goes out by mail. Send it as the
+<code>X-API-Key</code> header on every call. Anything wrong with it, write to
+<a href="mailto:data@automate-it-all.win">data@automate-it-all.win</a>.</p>
+
+</main>
+<footer>data@automate-it-all.win · <a href="https://automate-it-all.win/">every product</a> · <a href="https://automate-it-all.win/press/">press room</a> · <a href="https://www.youtube.com/@automateitallwin">youtube</a> · <a href="https://t.me/AutomateItAll">telegram</a> · <a href="https://github.com/automate-it-all">github</a> · <a href="https://www.reddit.com/user/AutomateItAllWin">reddit</a> · <a href="https://x.com/automateallthin">x</a> · <a href="https://fidel-perez.github.io/portfolio/">who builds this</a></footer>
+</body></html>

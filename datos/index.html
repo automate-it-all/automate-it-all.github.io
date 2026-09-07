@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Datos · Automate It All</title>
+<meta name="description" content="Spain's open data through one MCP server">
+<link rel="icon" href="favicon.png">
+<style>
+:root{--c:#28bd77}
+body{margin:0;font:16px/1.5 Inter,system-ui,sans-serif;color:#1a1a1a;background:#fff}
+header{background:var(--c);color:#fff;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:baseline}
+header a{color:#fff;text-decoration:none}
+header .p{opacity:.8;font-size:.9rem;margin-left:auto}
+main{max-width:52rem;margin:0 auto;padding:2rem 1.5rem}
+footer{max-width:52rem;margin:0 auto;padding:2rem 1.5rem;border-top:1px solid #ddd;color:#555;font-size:.9rem}
+footer a{color:var(--c)}
+a.btn{display:inline-block;background:var(--c);color:#fff;padding:.6rem 1rem;border-radius:.4rem;text-decoration:none;font-weight:700}
+</style></head>
+<body>
+<header><a href="https://automate-it-all.win/"><strong>Datos</strong></a><a class="p" href="https://automate-it-all.win/">Automate It All</a></header>
+<main>
+<h1>El BOE, las licitaciones públicas y el INE, por una sola API</h1>
+
+<p>Un servidor MCP y una API REST sobre tres fuentes abiertas españolas: el
+Boletín Oficial del Estado, las licitaciones de la Plataforma de Contratación
+del Sector Público y las series del INE. Se recogen a diario y se sirven ya
+normalizadas, con búsqueda de texto completo. Tu agente o tu script hacen una
+llamada en vez de tres raspados.</p>
+
+<p><a class="btn" href="#clave">Pide una clave gratis, 100 llamadas al día</a></p>
+
+<h2>Las Cuatro Herramientas, Con Una Llamada de Ejemplo Cada Una</h2>
+
+<p>La base es <code>https://datos.automate-it-all.win</code>. Toda llamada lleva
+la cabecera <code>X-API-Key</code>.</p>
+
+<h3>boe_search &mdash; buscar en el texto del BOE</h3>
+<pre style="white-space:pre-wrap;background:#f6f6f6;padding:1rem;border-radius:.5rem;font-size:.85rem">curl -H "X-API-Key: TU_CLAVE" \
+  "https://datos.automate-it-all.win/v1/boe/search?q=vivienda&amp;limit=5"</pre>
+
+<h3>boe_day &mdash; el boletín entero de un día</h3>
+<pre style="white-space:pre-wrap;background:#f6f6f6;padding:1rem;border-radius:.5rem;font-size:.85rem">curl -H "X-API-Key: TU_CLAVE" \
+  "https://datos.automate-it-all.win/v1/boe/day/20260904"</pre>
+
+<h3>tenders_search &mdash; licitaciones por texto, CPV, presupuesto y plazo</h3>
+<pre style="white-space:pre-wrap;background:#f6f6f6;padding:1rem;border-radius:.5rem;font-size:.85rem">curl -H "X-API-Key: TU_CLAVE" \
+  "https://datos.automate-it-all.win/v1/tenders/search?cpv=90910000&amp;min_budget=10000"</pre>
+
+<h3>ine_series &mdash; una serie del INE por código</h3>
+<pre style="white-space:pre-wrap;background:#f6f6f6;padding:1rem;border-radius:.5rem;font-size:.85rem">curl -H "X-API-Key: TU_CLAVE" \
+  "https://datos.automate-it-all.win/v1/ine/series/IPC251852"</pre>
+
+<h3>Desde un cliente MCP</h3>
+<pre style="white-space:pre-wrap;background:#f6f6f6;padding:1rem;border-radius:.5rem;font-size:.85rem">{
+  "mcpServers": {
+    "spanish-open-data": {
+      "url": "https://datos.automate-it-all.win/mcp",
+      "headers": { "X-API-Key": "TU_CLAVE" }
+    }
+  }
+}</pre>
+
+<h2 id="clave">Tu Clave Gratuita</h2>
+
+<p>Escribe tu correo y la clave sale al momento. Son 100 llamadas al día, sin
+tarjeta y sin caducidad.</p>
+
+<form id="free" style="display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0">
+  <input id="email" type="email" required placeholder="tu@correo.com"
+         style="flex:1;min-width:16rem;padding:.6rem;border:1px solid #ccc;border-radius:.4rem;font-size:1rem">
+  <button class="btn" type="submit" style="border:0;cursor:pointer;font-size:1rem">Dame la clave</button>
+</form>
+<p id="out" style="font-family:ui-monospace,monospace;word-break:break-all"></p>
+<script>
+document.getElementById('free').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  var out = document.getElementById('out');
+  out.textContent = 'Pidiendo la clave...';
+  try {
+    var r = await fetch('https://datos.automate-it-all.win/billing/free-key', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'email=' + encodeURIComponent(document.getElementById('email').value)
+    });
+    var d = await r.json();
+    out.textContent = r.ok
+      ? 'Tu clave: ' + d.key + '  (' + d.calls_per_day + ' llamadas al día)'
+      : 'No ha salido: ' + (d.detail || r.status);
+  } catch (err) {
+    out.textContent = 'No ha salido: ' + err;
+  }
+});
+</script>
+
+<h2>Precio</h2>
+
+<p>El plan de pago cuesta <strong>9 EUR al mes</strong> e incluye 10 000 llamadas
+mensuales. Pasadas esas, cada 1000 llamadas cuestan 1 EUR y se facturan al mes
+siguiente. Sin permanencia: se cancela desde el portal de Stripe.</p>
+
+<p><a class="btn" href="https://buy.stripe.com/test_7sYeVc4Zf1gK33Z8g61B606">Suscribirme por 9 EUR al mes</a></p>
+
+<p>La clave llega por correo en cuanto el pago se confirma, y también aparece en
+la página de gracias.</p>
+
+<h2>Qué Hay Dentro Hoy</h2>
+
+<p>615 items del BOE, 235 licitaciones y las series del IPC nacional, con el
+recolector corriendo a diario. Las fuentes son públicas y gratuitas: lo que se
+paga aquí es tenerlas recogidas, normalizadas y buscables sin montar nada.</p>
+
+<hr style="border:0;border-top:1px solid #ddd;margin:2.5rem 0">
+
+<h2>In English</h2>
+
+<p>Spain's Official State Gazette (BOE), public-sector tenders and INE
+statistics behind one MCP server and one REST API. Collected daily, normalised,
+full-text searchable. The base URL is
+<code>https://datos.automate-it-all.win</code> and every call carries an
+<code>X-API-Key</code> header.</p>
+
+<p>The four tools are <code>boe_search</code>, <code>boe_day</code>,
+<code>tenders_search</code> and <code>ine_series</code>; the example calls above
+work unchanged. A free key answers 100 calls a day. The paid plan is 9 EUR a
+month for 10 000 calls, then 1 EUR per 1000 beyond that.</p>
+
+<p>Questions, bug reports and bulk pricing:
+<a href="mailto:data@automate-it-all.win">data@automate-it-all.win</a>. A person
+reads that address.</p>
+
+</main>
+<footer>data@automate-it-all.win · <a href="https://automate-it-all.win/">every product</a> · <a href="https://automate-it-all.win/press/">press room</a> · <a href="https://www.youtube.com/@automateitallwin">youtube</a> · <a href="https://t.me/AutomateItAll">telegram</a> · <a href="https://github.com/automate-it-all">github</a> · <a href="https://www.reddit.com/user/AutomateItAllWin">reddit</a> · <a href="https://x.com/automateallthin">x</a> · <a href="https://fidel-perez.github.io/portfolio/">who builds this</a></footer>
+</body></html>
