@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Audiolibros de dominio público</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1>Audiolibros de dominio público</h1>
+<p>Audiolibros en español, obras de dominio público, narrados por voz clonada.
+Contacto: <a href="mailto:video@automate-it-all.win">video@automate-it-all.win</a></p>
+<p>Canal de YouTube:
+<a href="https://www.youtube.com/@automateitallwin">youtube.com/@automateitallwin</a></p>
+<p>Feed RSS del podcast: <a href="feed.xml">feed.xml</a></p>
+<h2>Libros</h2>
+<ul id="books"></ul>
+<script>
+fetch("feed.xml")
+  .then(r => r.text())
+  .then(xml => {
+    const doc = new DOMParser().parseFromString(xml, "text/xml");
+    const list = document.getElementById("books");
+    doc.querySelectorAll("item").forEach(item => {
+      const title = item.querySelector("title").textContent;
+      const author = item.getElementsByTagName("itunes:author")[0].textContent;
+      const link = item.querySelector("link").textContent;
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="${link}">${title}</a>, ${author}`;
+      list.appendChild(li);
+    });
+  });
+</script>
+</body>
+</html>

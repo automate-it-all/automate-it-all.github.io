@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+<channel>
+  <title>Audiolibros de dominio público</title>
+  <link>https://automate-it-all.win/audiolibros/</link>
+  <language>es</language>
+  <description>Audiolibros en español, obras de dominio público, narradas por voz clonada. Contacto: video@automate-it-all.win</description>
+  <itunes:owner><itunes:email>video@automate-it-all.win</itunes:email></itunes:owner>
+  <item>
+    <title>Leyendas (selection)</title>
+    <itunes:author>Gustavo Adolfo Bécquer</itunes:author>
+    <description>Leyendas (selección), de Gustavo Adolfo Bécquer. Audiolibro gratuito, dominio público.
+
+Capítulos:
+0:00 - Maese Pérez El Organista
+34:47 - Los Ojos Verdes
+52:35 - El Rayo De Luna
+1:16:21 - Tres Fechas
+1:59:54 - La Corza Blanca
+2:43:22 - La Rosa De Pasión
+3:04:03 - La Promesa
+3:27:01 - El Monte De Las Ánimas
+3:45:40 - El Gnomo
+4:20:19 - El Miserere
+4:43:04 - Las Hojas Secas
+4:51:49 - La Venta De Los Gatos
+
+Edition: *Obras escogidas de Gustavo A. Bécquer*, Madrid, Librería de Fernando Fé, 1912. Project Gutenberg ebook 53552: https://www.gutenberg.org/ebooks/53552
+
+Narración generada por clonación de voz a partir de una muestra propia (contenido alterado o sintético, declarado ante YouTube).
+
+Contacto: video@automate-it-all.win
+</description>
+    <enclosure url="https://automate-it-all.win/audiolibros/audio/0001.mp3" length="95771757" type="audio/mpeg"/>
+    <guid isPermaLink="false">ut42fdzcJ4U</guid>
+    <pubDate>Tue, 08 Sep 2026 23:25:16 GMT</pubDate>
+    <link>https://www.youtube.com/watch?v=ut42fdzcJ4U</link>
+  </item>
+</channel>
+</rss>
