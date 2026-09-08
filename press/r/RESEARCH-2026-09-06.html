@@ -413,6 +413,9 @@ align-items:baseline;margin:.3rem 0 0}
 /* A hyphen is a legal break, so `2026-09-13` split after its month on 2 of the 6
    owed rows at 1400px, and the loop name split at its own hyphen at 760px. */
 .owed .nb{white-space:nowrap}
+/* A gap row is a sentence, and it ran 150 characters a line at 1400px. Every
+   other prose block on this board caps at 78ch; this one was missed. */
+.owed li{max-width:78ch}
 /* A printed date goes stale where the page sits: the render runs once, the
    deadline lands later, and only the reader clock can say so. */
 /* `font-weight:400`: a fact's date sits inside its own <b>, and the age lands
@@ -626,6 +629,13 @@ details.fold[open]>summary{margin-bottom:.5rem}
 /* 76 fold summaries drew a 1560px box around 30 characters, which reads as a
    container. A pane holds prose and a hunk holds a path. */
 details.fold:not(.pane,.layer,.hunk)>summary{width:max-content;max-width:100%}
+/* A pane carries both classes at one specificity too, and `.fold` won, so a
+   record drew its five findings as five identical filled plates. The pane block
+   above says these lines are the finding and must read as prose; this lands it. */
+details.fold.pane>summary{display:block;border:0;border-radius:0;background:none;
+padding:.5rem .1rem;font-weight:400;font-size:1rem}
+details.fold.pane>summary:hover{background:none;color:var(--link)}
+details.fold.pane[open]>summary{font-weight:600;margin-bottom:0}
 /* BELOW `.fold` on purpose: a hunk carries both classes at the same specificity,
    so the later block is the one that lands. */
 details.hunk>summary{display:block;padding:.45rem .6rem;font-size:.8rem;font-weight:400;
@@ -794,6 +804,9 @@ padding:.5rem .9rem;border:1px solid var(--line);border-radius:10px;
 background:var(--card);color:var(--fg);text-decoration:none}
 .viewlink:hover{border-color:var(--link);color:var(--link)}
 .viewlink .vi{font-size:1.2rem;line-height:1}
+/* The label STACKS over its description, and a one-baseline plate was measured
+   and rejected: it saves 56px at 1400 and costs 30px at 1000, where two doors
+   grow to 470+490px and the row wraps. A plate in normal flow cannot shrink. */
 .viewlink .vtx{display:flex;flex-direction:column;line-height:1.35}
 .viewlink .vt{font-weight:600;font-size:.92rem}
 .viewlink .vd{color:var(--dim);font-size:.82rem}
@@ -1202,24 +1215,200 @@ border:1px solid var(--line);border-radius:20px;background:var(--chip);color:var
 .tabs>nav b.on{font-weight:650;border-color:var(--link);color:var(--link);background:var(--bg)}
 .tabs.js>.panel{display:none}
 .tabs.js>.panel.on{display:block}
-</style><noscript><style>.jsdead[hidden]{display:block}</style></noscript></head><body><div class="subtop"><label class="tick" onclick="event.stopPropagation()" title="marks it read in this browser only — not a decision, and never written to the corpus"><input type="checkbox" class="readbox" onchange="setRead(this)" data-rid="RESEARCH-2026-09-06">read</label><nav class="doors" aria-label="ways out of this record"><a class="viewlink home homelink" id="homelink" href="#" target="_top" hidden><span class="vi" aria-hidden="true">&#8592;</span><span class="vtx"><span class="vt">Every living board</span><span class="vd">the other corpora this run is serving</span></span></a><a class="viewlink boardlink" href="../index.html?row=1#RESEARCH-2026-09-06"><span class="vi" aria-hidden="true">&#8592;</span><span class="vtx"><span class="vt">Every decision</span><span class="vd">the board this record sits on</span></span></a></nav><nav class="doors steps" aria-label="the records either side of this one"><a class="viewlink steplink prev" href="DIRECTOR-2026-09-06-4.html" title="Director pass 2026-09-06-4"><span class="vi" aria-hidden="true">&#10094;</span><span class="vtx"><span class="vt">Previous record</span><span class="vd">Director pass 2026-09-06-4</span></span></a><span class="stepat">7 of 7</span></nav><nav class="steprow" aria-label="the records either side"><a class="chip door steplink prev" href="DIRECTOR-2026-09-06-4.html"><span class="di" aria-hidden="true">&#10094;</span>previous</a><span class="small dim">7 of 7</span></nav><div class="copyrow static-only"><a class="chip door copylink" href="#copyout"><span class="di" aria-hidden="true">&#8595;</span>this decision, to copy</a></div><nav class="exitrow" id="exitrow" aria-labelledby="doorlab" hidden><span class="small dim" id="doorlab">leave this record</span><a class="chip door homelink" href="#" target="_top" hidden><span class="di" aria-hidden="true">&#8592;</span>every living board</a><a class="chip door boardlink" href="../index.html?row=1#RESEARCH-2026-09-06"><span class="di" aria-hidden="true">&#8592;</span>every decision</a></nav><div class="small dim substamp">rendered <time class="ago" datetime="2026-09-06">2026-09-06</time> · <code>~/git/fidel-notes/pueblo/AUTONOMOUS-WORK/NEWSROOM</code></div><div class="stalebar live-only" id="stalebar" role="status" hidden><span id="staletxt"></span><button type="button" class="chip" id="stalego" onclick="rebuild(this)">rebuild this page</button></div></div><main><div class="small dim live-only" style="margin-top:.5rem"><span class="livebadge">live</span> notes and answers are writing straight into the corpus — <code>git status</code> to see them.</div><div class="small dim static-only" style="margin-top:.5rem">Read-only over <code>file://</code>. For autosaving notes and one-click answers: <code>python3 page/serve.py</code></div><div class="small jsdead" style="margin-top:.5rem" hidden>This page's script is off or it failed, so the read tick, the copy button and the screenshots do nothing. The record below still reads, and every fold still opens.</div><details class="item proposed" open id="RESEARCH-2026-09-06" data-owner="" data-waiting="" data-tier="" data-find="research-2026-09-06 research pass 2026-09-06 press room / research post proposed"><summary class="sole" tabindex="-1"><span class="lanetag proposed">to approve</span><span class="lanetag moved" hidden></span><h1 class="q">Research pass 2026-09-06</h1><div class="metarow"></div></summary><div class="kv"><code>RESEARCH-2026-09-06</code> · post · status <b>proposed</b> · <button class="copybtn" onclick="copyText(this,'.body')">copy</button></div><div class="body"># Research lab: RESEARCH-LAB
+</style><noscript><style>.jsdead[hidden]{display:block}</style></noscript></head><body><div class="subtop"><label class="tick" onclick="event.stopPropagation()" title="marks it read in this browser only — not a decision, and never written to the corpus"><input type="checkbox" class="readbox" onchange="setRead(this)" data-rid="RESEARCH-2026-09-06">read</label><nav class="doors" aria-label="ways out of this record"><a class="viewlink home homelink" id="homelink" href="#" target="_top" hidden><span class="vi" aria-hidden="true">&#8592;</span><span class="vtx"><span class="vt">Every living board</span><span class="vd">the other corpora this run is serving</span></span></a><a class="viewlink boardlink" href="../index.html?row=1#RESEARCH-2026-09-06"><span class="vi" aria-hidden="true">&#8592;</span><span class="vtx"><span class="vt">Every decision</span><span class="vd">the board this record sits on</span></span></a></nav><nav class="doors steps" aria-label="the records either side of this one"><a class="viewlink steplink prev" href="PRESS-public-domain-audiobooks-2026-09-06-215233.html" title="public-domain-audiobooks: 2 number(s)"><span class="vi" aria-hidden="true">&#10094;</span><span class="vtx"><span class="vt">Previous record</span><span class="vd">public-domain-audiobooks: 2 number(s)</span></span></a><span class="stepat">44 of 51</span><a class="viewlink steplink next" href="PRESS-science-youtube-manim-2026-09-08-173540.html" title="science-youtube-manim: 8 launch, 5 number"><span class="vi" aria-hidden="true">&#10095;</span><span class="vtx"><span class="vt">Next record</span><span class="vd">science-youtube-manim: 8 launch, 5 number</span></span></a></nav><nav class="steprow" aria-label="the records either side"><a class="chip door steplink prev" href="PRESS-public-domain-audiobooks-2026-09-06-215233.html"><span class="di" aria-hidden="true">&#10094;</span>previous</a><span class="small dim">44 of 51</span><a class="chip door steplink next" href="PRESS-science-youtube-manim-2026-09-08-173540.html"><span class="di" aria-hidden="true">&#10095;</span>next</a></nav><div class="copyrow static-only"><a class="chip door copylink" href="#copyout"><span class="di" aria-hidden="true">&#8595;</span>this decision, to copy</a></div><nav class="exitrow" id="exitrow" aria-labelledby="doorlab" hidden><span class="small dim" id="doorlab">leave this record</span><a class="chip door homelink" href="#" target="_top" hidden><span class="di" aria-hidden="true">&#8592;</span>every living board</a><a class="chip door boardlink" href="../index.html?row=1#RESEARCH-2026-09-06"><span class="di" aria-hidden="true">&#8592;</span>every decision</a></nav><div class="small dim substamp">rendered <time class="ago" datetime="2026-09-08">2026-09-08</time> · <code>~/git/fidel-notes/pueblo/AUTONOMOUS-WORK/NEWSROOM</code></div><div class="stalebar live-only" id="stalebar" role="status" hidden><span id="staletxt"></span><button type="button" class="chip" id="stalego" onclick="rebuild(this)">rebuild this page</button></div></div><main><div class="small dim live-only" style="margin-top:.5rem"><span class="livebadge">live</span> notes and answers are writing straight into the corpus — <code>git status</code> to see them.</div><div class="small dim static-only" style="margin-top:.5rem">Read-only over <code>file://</code>. For autosaving notes and one-click answers: <code>python3 page/serve.py</code></div><div class="small jsdead" style="margin-top:.5rem" hidden>This page's script is off or it failed, so the read tick, the copy button and the screenshots do nothing. The record below still reads, and every fold still opens.</div><details class="item proposed" open id="RESEARCH-2026-09-06" data-owner="" data-waiting="" data-tier="" data-find="research-2026-09-06 research pass 2026-09-06 press room / research post proposed"><summary class="sole" tabindex="-1"><span class="lanetag proposed">to approve</span><span class="lanetag moved" hidden></span><h1 class="q">Research pass 2026-09-06</h1><div class="metarow"></div></summary><div class="kv"><code>RESEARCH-2026-09-06</code> · post · status <b>proposed</b> · <button class="copybtn" onclick="copyText(this,'.body')">copy</button></div><div class="body"># Research lab: RESEARCH-LAB
 
 ## Kept
 - Direct every idea: UNMEASURABLE: the try was taken while the row was LIVE at pass 3 of 12, so verdict would bill the edit for 3 pre-edit passes. Kept on its own checks: voice-check 0, prompt-lint 0, hypotheses 5 -&gt; 1. research-lab try now refuses a LIVE row (exit 5).
+- Publish the site-⚙️: before 0.00 after 0.00, 1 run(s), 0 broke; cured 1 of 3 broke runs
+- Publish every ledger to the press room: before 0.00 after 236.00, 1 run(s), 0 broke; cured 1 of 4 broke runs
+- x402-data-endpoint/00-ledger: before new after 4.00, 1 run(s), 0 broke; before was new, so the keep rests on the run not breaking, never on a raised score
+- self-hosting-video-course/00-ledger: before new after 4.00, 1 run(s), 0 broke; before was new, so the keep rests on the run not breaking, never on a raised score
+- spanish-open-data-mcp/00-ledger: before new after 4.00, 1 run(s), 0 broke; before was new, so the keep rests on the run not breaking, never on a raised score
+- science-youtube-manim/00-ledger: before new after 4.00, 1 run(s), 0 broke; before was new, so the keep rests on the run not breaking, never on a raised score
 
 ## Reverted
-- none
+- public-domain-audiobooks/01-voice-and-first-book: tried: book one is ONE work, not the 12-story Leyendas volume. UNTESTED, because prompt-run --again resumed the row&#x27;s OLD loop at pass 12 of 12 and its OLD handoff, so the run polled render_all.sh for 12 of 12 wavs and never read the edited body. Next pass: reset the row&#x27;s loop state before trying an edit on a capped row, and note the done-when tree check reads ~/git/autonomous-work, which ten departments leave dirty.
+- self-hosting-video-course/00-ledger: tried: pin telegram:-1004404879807 on the cron and the send. The WORLD-CHECK PASSED and stands: hermes cron list shows course-ledger delivering to the channel id, where it delivered to the blocked home bot before. The revert rests on 4.00 -&gt; 2.00, a key rate the edit never touched. The root cause is AUTONOMOUS-WORK/Every row says.md, the brief every row is written from, which pass 11 fixed outside the experiment. Next pass: try a row whose score the edit can move.
 
 ## Trying
 - none
 
-## Pass 3 Findings
+## Pass 5 Findings
 
-- <code>research-lab hypotheses</code> ranked one row and no department over <code>AUTONOMOUS-WORK</code>, because it chose single mode whenever the target held one <code>.md</code>. An ops dir normally holds rows AND folders, so it now runs both and concatenates. The real target went from 1 candidate to 10.
-- <code>research-lab try</code> now refuses while ANY row in the folder is live. The score it files is the FOLDER&#x27;s number, so a sibling&#x27;s run adds hours and moves the edit never touched.
-- 3 of 15 departments had a row live during this pass: data-eng-templates, hermes-smb-agency and MARKETING-BRANDING.
-- 23 of the 62 rows under <code>AUTONOMOUS-WORK</code> carry <code>attended:</code>, so a research pass cannot run them and cannot score an edit to them.
-- Every row with a learnings pile worth folding was live or attended, so this pass settled no experiment. <code>agent-skills-pack/03-launch-posts.md</code> holds 12 facts and waits on the operator&#x27;s Reddit and X sessions.</div><div class="notebox live-only"><textarea id="nt-RESEARCH-2026-09-06" aria-label="your note on this item — autosaves into the corpus so you can commit it" placeholder="your note on this item — autosaves into the corpus so you can commit it" oninput="noteChanged('RESEARCH-2026-09-06')" onblur="flushNote('RESEARCH-2026-09-06')"></textarea><div class="hint hint" id="nh-RESEARCH-2026-09-06" role="status">autosaves as you type</div></div><form class="decide-form" data-rid="RESEARCH-2026-09-06" onsubmit="return false"><label class="static-only radio"><input type="radio" name="v-RESEARCH-2026-09-06" value="accepted"> accepted</label><label class="static-only radio"><input type="radio" name="v-RESEARCH-2026-09-06" value="rejected"> rejected</label><label class="static-only radio"><input type="radio" name="v-RESEARCH-2026-09-06" value="needs-ai-work"> needs AI work</label><textarea class="body-in" aria-label="what you decided, and why" placeholder="what you decided, and why (verbatim into the record)"></textarea><div class="dim small">a verdict carries this text in with it</div><div class="live-only" style="margin-top:.5rem"><button type="button" class="mark" data-verdict="accepted" onclick="signAnswer(this,'RESEARCH-2026-09-06','accepted')">accepted</button> <button type="button" class="mark" data-verdict="rejected" onclick="signAnswer(this,'RESEARCH-2026-09-06','rejected')">rejected</button> <button type="button" class="mark" data-verdict="needs-ai-work" onclick="signAnswer(this,'RESEARCH-2026-09-06','needs-ai-work')">needs AI work</button> <button type="button" class="unmark" onclick="clearAnswer(this,'RESEARCH-2026-09-06')">clear the mark</button> <span class="answer-hint hint" role="status"></span></div></form></details><div class="static-only" id="copyout" tabindex="-1" data-scope="item"><button onclick="emit(this,EPIC,'item')">Copy this decision</button><div class="small hint copyhint" role="status"></div><div class="copydoors" hidden></div><div class="out"><textarea readonly rows="6" aria-label="the patch to paste back"></textarea><div class="small dim">Paste it back with: <code>pbpaste | docs-as-records page apply --epic &lt;corpus&gt; --patch -</code></div></div></div></main><div id="lb" role="dialog" aria-modal="true" aria-label="screenshot"><button class="nav prev" onclick="lbNav(-1,event)" aria-label="previous">&#10094;</button><div class="stage" tabindex="-1" onclick="event.stopPropagation()"><img alt="" onclick="lbZoom(event)"><div class="cap" role="status"></div></div><button class="nav next" onclick="lbNav(1,event)" aria-label="next">&#10095;</button><div class="lbtools"><button type="button" class="lbz" onclick="lbZoom(event)"></button><button type="button" class="lbx" onclick="closeLb()">Close</button></div></div><div id="md" data-mode="one" role="dialog" aria-modal="true" aria-labelledby="mdt"><div class="mwrap" tabindex="-1"><div class="mbar"><button class="mnav" onclick="cardStep(-1)" aria-label="previous card">&#10094;</button><span class="mtitle" id="mdt"></span> <span class="lanetag mlane" hidden></span> <span class="mcount"></span> <span class="mkeys">&larr; &rarr; move &middot; Esc closes</span><button class="mnav" onclick="cardStep(1)" aria-label="next card">&#10095;</button><a class="mopen" hidden href="#" aria-label="open this record on its own page"><span class="mot">Full page</span><span aria-hidden="true">&#8599;</span></a><button class="mx" onclick="modalClose()" aria-label="close">Close &#10005;</button></div><div class="mbody"></div></div></div><script>var EPIC="/home/fperez/git/fidel-notes/pueblo/AUTONOMOUS-WORK/NEWSROOM";var LANEW={"all": "everything", "decide": "need you", "proposed": "to approve", "released": "to build", "cleared": "cleared", "unlaned": "matched no lane"};var BUILT={"h": "e6856c80387e", "n": 10};
+The ranking <code>research-lab hypotheses</code> hands every pass was noise over AUTONOMOUS-WORK, and two commits repaired it.
+
+- <code>director score</code> divided ADVANCED ledger keys by run-hours, and <code>advanced</code>
+  counts only a key re-filed at a new status. Six of the seven run departments
+  therefore read 0.00, and <code>data-eng-templates</code> ranked TOP prune candidate with
+  16 filed keys, a public repo and a live store page behind it. A key FILED now
+  counts: <code>director.throughput()</code> is the one copy of the formula and
+  <code>director.idle()</code> the one prune predicate.
+- A folder <code>broke</code> count included runs of rows that are WALLS. The same
+  attended row the ranking sinks at rank 9 put its folder back at rank 2.
+- A folder <code>broke</code> count also included a break an earlier pass cured.
+  PRESS-ROOM ranked 1 on a <code>blocked</code> run of 18:35:21Z whose successor at
+  21:04:25Z ended <code>done</code>. <code>row_runs</code> now reports <code>cured</code>, the newest run in the
+  window ending <code>done</code>.
+
+Department scores after the fix, keys per run-hour: hermes-smb-agency 12.00, agent-skills-pack 6.47, data-eng-templates 5.98, MARKETING-BRANDING 5.88, ai-video-ads 2.46, niche-content-engine 1.00, PRESS-ROOM 0.00.
+
+The top candidate is now PRESS-ROOM, 4 runs and no ledger of its own, so nothing it publishes is ever measured. That is the next experiment.
+
+Walls that stand, and each needs a person: Replicate credit, Stripe Connect payouts, the money-side Reddit and X sessions on :9223, and
+<code>x402-data-endpoint</code> serving <code>GET /v1/daily</code> before
+<code>niche-content-engine/01-channel-and-daily-digest.md</code> can unpark. That last one needs no person: <code>x402-data-endpoint/00-ledger.md</code> and
+<code>01-prototype-data-pipeline.md</code> carry no <code>attended:</code> and have never run.
+
+## Pass 6 Findings
+
+Two things landed: the ranking stopped lying at random, and PRESS-ROOM became measurable.
+
+- <code>research-lab hypotheses</code> read <code>prompt-supervise</code>&#x27;s stdout and ignored its
+  exit code. A <code>probe</code> failure inside <code>prompt-supervise</code> dies with exit 4 and
+  prints nothing, so the folder came back with no wall, every ATTENDED row in
+  it counted as a break, and the folder climbed to rank 1 with no door on it.
+- Measured 2026-09-06: two rankings minutes apart, no edit between them, put
+  <code>data-eng-templates</code> at rank 1 <code>broke 1 of 4 runs</code> and then at rank 4 `score
+  5.98<code>. Its </code>03-launch-posts.md<code> carries </code>attended:` for the money-side Reddit
+  and X sessions, so a pass acting on the first ranking would have run an
+  experiment against a wall a person owns.
+- <code>supervise()</code> now dies on any exit outside 0 and 1, naming the folder, the
+  code and <code>prompt-supervise</code>&#x27;s stderr. Exit 0 is a table and exit 1 is a
+  folder holding no row but the asking one, which is the lab&#x27;s own case.
+
+The settled experiment is <code>press-room-own-ledger</code>, kept: before 0.00, after 236.00, one run, zero broke.
+
+- The publish body gained one bullet: `ledger set
+  &quot;$(dirname &quot;$PROMPT_NOTE&quot;)/work-ledger.tsv&quot; &lt;record key&gt; &lt;status&gt;` files each
+  record the pass wrote, one key per record.
+- The run filed 118 keys into a <code>work-ledger.tsv</code> PRESS-ROOM never had, so a
+  department that had published 49 rows over 4 runs now reports a number.
+- 236.00 keys per run-hour sits two orders above every other department, and a
+  press-room key is one <code>ledger set</code> rather than a shipped artifact. The number
+  reads PRESS-ROOM against itself and against nobody else.
+- All 118 keys are <code>stuck</code>: filed once and never re-filed at a new status. That
+  is the next candidate this folder offers.
+- The run found the self-reference the bullet creates: PRESS-ROOM&#x27;s own
+  <code>work-ledger.tsv</code> matches <code>newsroom ledgers</code>&#x27; glob under OPS, so `newsroom
+  owed` sees the press room as a source and the gate fails. Self-ack in the
+  same pass is `ledger unsent &lt;file&gt; press-room | cut -f2 | ledger sent &lt;file&gt;
+  press-room -`, and the row&#x27;s learnings carry it.
+
+## Pass 7 Findings
+
+The ranking picked the department by ASCII, and a department that had never run was invisible to it. Two commits closed both, and the first never-run department then ran.
+
+- <code>research-lab hypotheses</code> broke a tie inside one kind on the PATH. Over
+  AUTONOMOUS-WORK the six <code>score</code> candidates came out alphabetically:
+  MARKETING-BRANDING 11.02 stood at rank 1 and niche-content-engine 2.00 at
+  rank 6. Every candidate now carries a <code>room</code> number and the sort reads it
+  before the path, so the department producing least ranks first.
+- <code>ops</code> emitted a <code>score</code> candidate only where the score was a number, and a
+  folder with no run in the window scores <code>math.inf</code>. Four departments were
+  therefore absent from every ranking this loop took: self-hosting-video-course,
+  spanish-open-data-mcp, science-youtube-manim and x402-data-endpoint. A folder
+  holding rows and no run now ranks <code>never-run</code>, above every scored department.
+- The <code>never-run</code> tie breaks on the row count, and that count includes a row a
+  person must attend. self-hosting-video-course ranks first on four rows and
+  holds one row a pass can run unattended.
+- The settled experiment is <code>x402-first-run</code>, kept: x402-data-endpoint went from
+  <code>new</code> to 4.00 keys per run-hour on one run that ended <code>done</code> at
+  2026-09-06T22:52:50Z. The edit told the row that a missing <code>spend.jsonl</code> or
+  <code>revenue.jsonl</code> counts as zero, because the first pass runs <code>ledger.py</code> before
+  either file exists.
+- That run chained on to <code>01-prototype-data-pipeline.md</code>, and a served
+  <code>GET /v1/daily</code> is what unparks
+  <code>niche-content-engine/01-channel-and-daily-digest.md</code>.
+
+## Pass 8 Findings
+
+The department that had never run produced, and the lab&#x27;s own verdict line stopped saying two different things in the same words.
+
+- <code>self-hosting-video-course</code> ranked 1 as <code>never-run</code>, four rows and no run in
+  30 days. Its <code>00-ledger.md</code> is the only row carrying no <code>attended:</code>, so it is
+  the only one a pass can try. The edit told it that a missing <code>spend.jsonl</code> or
+  <code>revenue.jsonl</code> counts as zero, the same first-pass trap <code>x402-data-endpoint</code>
+  paid for at pass 7.
+- The run ended <code>done</code> at 2026-09-06T23:09:34Z, its finish check passed, and
+  the folder scores 4.00 keys per run-hour. It wrote two facts of its own into
+  the row: <code>youtube.json</code> names the free lessons&#x27; video IDs, and revenue reads
+  0 while <code>head -c 7 ~/.config/stripe</code> prints <code>sk_test</code>.
+- <code>research-lab verdict</code> keeps ANY experiment over a folder that never ran,
+  because <code>math.inf</code> is a baseline every comparison passes. The <code>kept</code> line
+  read exactly like one earned by a raised score. It now carries `before was
+  new, so the keep rests on the run not breaking, never on a raised score`.
+- An experiment&#x27;s label was the row&#x27;s basename alone, and every department&#x27;s
+  first row is <code>00-ledger.md</code>. <code>research-lab report</code> printed two identical
+  <code>- 00-ledger:</code> lines for two departments. The label is now <code>&lt;folder&gt;/&lt;row&gt;</code>.
+
+Five sibling ledger rows still spell <code>hermes cron create ... --deliver telegram</code>, which registers against the home bot that blocked the user, so Monday&#x27;s post fails: <code>spanish-open-data-mcp</code>, <code>science-youtube-manim</code>, <code>hermes-smb-agency</code>, <code>public-domain-audiobooks</code> and
+<code>self-hosting-video-course</code>. Four departments already spell
+<code>telegram:-1004404879807</code>, so the fix is known and unapplied.
+
+<code>x402-data-endpoint/01-prototype-data-pipeline.md</code> was still LIVE at the end of this pass, two hours in, and <code>100.120.110.117:8402</code> still refuses.
+
+## Pass 9 Findings
+
+Both never-run departments ran a first pass, and the same one-line cure carried both.
+
+- <code>spanish-open-data-mcp</code> and <code>science-youtube-manim</code> had 4 and 3 rows and no run
+  in 30 days. Each <code>00-ledger.md</code> told the pass to sum <code>spend.jsonl</code> and
+  <code>revenue.jsonl</code>, and the first pass runs <code>ledger.py</code> before either file exists.
+- One bullet on each row says a missing file counts as zero. Both runs ended
+  <code>done</code>, both finish checks passed, and both chained to their next row.
+- Four departments have now taken that cure: <code>x402-data-endpoint</code>,
+  <code>self-hosting-video-course</code>, <code>spanish-open-data-mcp</code> and
+  <code>science-youtube-manim</code>. Every one scored <code>new</code> before and 4.00 after.
+- Each first run also repaired its own Telegram target without being asked. Both
+  ledger rows now spell <code>telegram:-1004404879807</code>, the @AutomateItAll channel,
+  because the bare <code>telegram</code> home DM bot is blocked.
+- No <code>never-run</code> department is left under AUTONOMOUS-WORK. The ranking&#x27;s top
+  candidate is now <code>niche-content-engine</code> at 2.00 keys per run-hour, and it is
+  parked behind <code>x402-data-endpoint</code> serving <code>GET /v1/daily</code>.
+
+## Pass 10 Findings
+
+A row&#x27;s HANDOFF outranks its BODY, so an experiment edited into the body of a row that already ran is never read.
+
+- <code>research-lab try</code> snapshotted <code>public-domain-audiobooks/01-voice-and-first-book.md</code>
+  and the pass edited one rule: book one is ONE work, not the whole 12-story
+  Bécquer volume, because 47 508 words cost more GPU render hours than a loop
+  has passes.
+- <code>prompt-run --again</code> then handed the fresh session the previous run&#x27;s handoff
+  as <code>handoff-previous.md</code>. Its pass 1 adopted that <code>Left, in Order</code> whole and
+  spent all 12 passes polling <code>render_all.sh</code> for 12 of 12 wavs.
+- The run capped again at 0.00 against a baseline of 1.08, so <code>verdict</code> reverted
+  an edit nothing had measured.
+- <code>prompt-run --clear</code> is the answer and already existed. <code>research-lab try</code> now
+  globs the row&#x27;s own 📊 drawer and prints <code>--clear</code> where any earlier
+  <code>chain.json</code> stands, with the reason on stderr.
+- The row&#x27;s <code>done-when</code> gate also fails on a second count nobody can cure from
+  the row: its composed tree check reads <code>~/git/autonomous-work</code>, one git repo
+  that ten departments share, and <code>agent-skills-pack</code>, <code>site/</code>,
+  <code>science-youtube-manim</code> and five more leave it dirty. An upload would still
+  gate red.
+
+## Pass 11 Findings
+
+- <code>course-telegram-target</code> REVERTED on the number, kept in the world. The edit pinned <code>telegram:-1004404879807</code> on <code>self-hosting-video-course/00-ledger.md</code>, the run ended <code>done</code> with <code>gate: pass</code>, and <code>hermes cron list</code> now shows <code>course-ledger</code> delivering to the @AutomateItAll channel where it delivered to the blocked home bot before. The score fell 4.00 to 2.00 on a key rate the edit never touched, so <code>verdict</code> restored the body.
+- FOUR CRON JOBS STILL DELIVER TO THE BLOCKED HOME BOT: <code>hermes-agency-outreach</code>, <code>hermes-agency-replies</code>, <code>science-channel-ledger</code>, <code>datos-collect</code>. Eleven deliver to the channel id and work. <code>hermes cron edit &lt;id&gt; --deliver telegram:-1004404879807</code> repoints one.
+- THE ROOT CAUSE WAS THE BRIEF, and pass 11 fixed it: <code>AUTONOMOUS-WORK/Every row says.md</code> told every row to spell <code>hermes cron create … --deliver telegram</code> and <code>hermes send --to telegram</code>. Both lines now name the channel id and the cost of the bare target.
+- <code>public-domain-audiobooks/01-voice-and-first-book.md</code> CAPS ON A GPU RENDER, not on a prompt defect: <code>render_all.sh</code> had 2 of 12 chapters at 00:27Z with about 3.6 hours left, and each loop pass polled it for 90 seconds and returned <code>continue</code>, so twelve passes covered eighteen minutes. The cure shipped in the shared <code>loop-🔁.md</code> at 00:14:01Z, two minutes after the run it describes, and no run has read it yet.
+- A LAB PASS REACHES 5 OF THE 6 RUN SLOTS, because its own session is one of the six <code>PROMPT_RUN_CAP</code> counts. Under AUTONOMOUS-WORK the director plus three department runs filled those five for 45 minutes, and <code>prompt-run</code> refused the experiment&#x27;s launch 45 times.
+- TWO REPO FIXES LANDED: <code>research-lab try</code> warns when the box is at the cap before it snapshots a row, and <code>research-lab verdict</code> copies the live body and drawers to <code>experiments/&lt;slug&gt;/after/</code> before a revert overwrites them. The revert had been destroying the facts the run itself wrote into the row.
+
+## Pass 12 Findings
+
+Pass 12 was the last pass of the loop. It settled no scored experiment and closed the bare-<code>telegram</code> bug across the whole department folder instead.
+
+- <code>hermes send --to telegram</code> IS DEAD, and pass 12 proved it rather than inferring it: the probe exits 1 with <code>Telegram send failed: Forbidden: bot was blocked by the user</code>. Every department row ended its pass by posting its report through that target, so no department report has arrived since the operator blocked the bot.
+- THE HOME CHANNEL IS A DM, <code>1370010055</code> in <code>~/.hermes/channel_directory.json</code>, and hermes REWRITES that file itself. No config edit cures the bare target durably, so the cure has to be spelled in the rows.
+- SIXTEEN OF SIXTEEN CRON JOBS now deliver to <code>telegram:-1004404879807</code>. Pass 12 repointed the last four, <code>hermes-agency-outreach</code>, <code>hermes-agency-replies</code>, <code>science-channel-ledger</code> and <code>datos-collect</code>, with <code>hermes cron edit &lt;id&gt; --deliver telegram:-1004404879807</code>.
+- FORTY LIVE ROWS now name the channel too, from one portable <code>sed -i.p12bak</code> sweep over <code>--to telegram\</code><code> and </code>--deliver telegram <code>. The </code>RESEARCH-LAB/experiments/*/before/<code> snapshots keep the bare target on purpose, because they are the baselines a </code>verdict` restores.
+- A <code>sed -i</code> SWEEP OVER A PROMPT TREE BREAKS EVERY SYMLINK IT TOUCHES. The sweep replaced 69 <code>-📊/</code> drawer symlinks with regular copies, this run&#x27;s own <code>handoff.md</code> among them. The state files behind them survived untouched, and one <code>ln -s</code> pass rebuilt all 69 from a sibling symlink&#x27;s target directory.
+- THE SUITE RAN WHOLE: <code>bash bin/run_tests.sh --all --worktree</code> at <code>5c9be4df6</code>, 53 minutes, <code>run_tests: done (rc=1, 20 failed of 393, 1 SKIPPED THEMSELVES)</code>.
+- NONE OF THE 20 REDS BELONGS TO THIS LOOP. <code>git log origin/main..HEAD</code> is empty, so the measured sha is <code>main</code> itself, and <code>suite-baseline check --at cd0a3dbf5</code> answers UNATTRIBUTED on all five prompt-tier reds it was asked. A co-tenant&#x27;s core-tier run at a descendant sha failed exactly the same 6 core lanes.
+- THREE REDS ARE CODE DEFECTS A NEXT RUN CAN FIX: <code>test_module_consistency.sh</code> (module <code>notebook-git</code> in no bundle, <code>prose_budget_write_verdict</code> defined twice), the three <code>test_mirror_export*.sh</code> lanes (the staged mirror calls <code>bin/tests/test_newsroom.sh</code> and <code>bin/tests/test_site.sh</code> and ships neither), and <code>test_treefolderargs.sh</code> (<code>rebuild.lua</code>&#x27;s emit drops <code>fn_args</code>, so a drawer stops being drawn silently).</div><div class="notebox live-only"><textarea id="nt-RESEARCH-2026-09-06" aria-label="your note on this item — autosaves into the corpus so you can commit it" placeholder="your note on this item — autosaves into the corpus so you can commit it" oninput="noteChanged('RESEARCH-2026-09-06')" onblur="flushNote('RESEARCH-2026-09-06')"></textarea><div class="hint hint" id="nh-RESEARCH-2026-09-06" role="status">autosaves as you type</div></div><form class="decide-form" data-rid="RESEARCH-2026-09-06" onsubmit="return false"><label class="static-only radio"><input type="radio" name="v-RESEARCH-2026-09-06" value="accepted"> accepted</label><label class="static-only radio"><input type="radio" name="v-RESEARCH-2026-09-06" value="rejected"> rejected</label><label class="static-only radio"><input type="radio" name="v-RESEARCH-2026-09-06" value="needs-ai-work"> needs AI work</label><textarea class="body-in" aria-label="what you decided, and why" placeholder="what you decided, and why (verbatim into the record)"></textarea><div class="dim small">a verdict carries this text in with it</div><div class="live-only" style="margin-top:.5rem"><button type="button" class="mark" data-verdict="accepted" onclick="signAnswer(this,'RESEARCH-2026-09-06','accepted')">accepted</button> <button type="button" class="mark" data-verdict="rejected" onclick="signAnswer(this,'RESEARCH-2026-09-06','rejected')">rejected</button> <button type="button" class="mark" data-verdict="needs-ai-work" onclick="signAnswer(this,'RESEARCH-2026-09-06','needs-ai-work')">needs AI work</button> <button type="button" class="unmark" onclick="clearAnswer(this,'RESEARCH-2026-09-06')">clear the mark</button> <span class="answer-hint hint" role="status"></span></div></form></details><div class="static-only" id="copyout" tabindex="-1" data-scope="item"><button onclick="emit(this,EPIC,'item')">Copy this decision</button><div class="small hint copyhint" role="status"></div><div class="copydoors" hidden></div><div class="out"><textarea readonly rows="6" aria-label="the patch to paste back"></textarea><div class="small dim">Paste it back with: <code>pbpaste | docs-as-records page apply --epic &lt;corpus&gt; --patch -</code></div></div></div></main><div id="lb" role="dialog" aria-modal="true" aria-label="screenshot"><button class="nav prev" onclick="lbNav(-1,event)" aria-label="previous">&#10094;</button><div class="stage" tabindex="-1" onclick="event.stopPropagation()"><img alt="" onclick="lbZoom(event)"><div class="cap" role="status"></div></div><button class="nav next" onclick="lbNav(1,event)" aria-label="next">&#10095;</button><div class="lbtools"><button type="button" class="lbz" onclick="lbZoom(event)"></button><button type="button" class="lbx" onclick="closeLb()">Close</button></div></div><div id="md" data-mode="one" role="dialog" aria-modal="true" aria-labelledby="mdt"><div class="mwrap" tabindex="-1"><div class="mbar"><button class="mnav" onclick="cardStep(-1)" aria-label="previous card">&#10094;</button><span class="mtitle" id="mdt"></span> <span class="lanetag mlane" hidden></span> <span class="mcount"></span> <span class="mkeys">&larr; &rarr; move &middot; Esc closes</span><button class="mnav" onclick="cardStep(1)" aria-label="next card">&#10095;</button><a class="mopen" hidden href="#" aria-label="open this record on its own page"><span class="mot">Full page</span><span aria-hidden="true">&#8599;</span></a><button class="mx" onclick="modalClose()" aria-label="close">Close &#10005;</button></div><div class="mbody"></div></div></div><script>var EPIC="/home/fperez/git/fidel-notes/pueblo/AUTONOMOUS-WORK/NEWSROOM";var LANEW={"all": "everything", "decide": "need you", "proposed": "to approve", "released": "to build", "cleared": "cleared", "unlaned": "matched no lane"};var BUILT={"h": "71a0ffbb03fc", "n": 220};
 /* FIRST, so a throw in anything below it is still reported. */
 window.addEventListener('error',function(){
   var d=document.querySelector('.jsdead');

@@ -1,0 +1,100 @@
+title: Automate It All — Idea Launches
+tagline: Every idea folder's live launch page, one click from claim to source.
+sources:
+- records/LAUNCH-*.yaml
+boards:
+- title: Launches
+  color: green
+  items:
+  - text: 'MARKETING-BRANDING: agent-skills-pack-payment-link'
+    url: https://buy.stripe.com/test_3cI7sK63jbVo5c72VM1B600
+  - text: 'MARKETING-BRANDING: agent-skills-pack-repo'
+    url: https://github.com/automate-it-all/agent-skills-pack
+  - text: 'MARKETING-BRANDING: agent-skills-pack-site'
+    url: https://automate-it-all.win/skills/
+  - text: 'MARKETING-BRANDING: data-eng-templates-repo'
+    url: https://github.com/automate-it-all/data-pipeline-kits
+  - text: 'MARKETING-BRANDING: data-eng-templates-site'
+    url: https://automate-it-all.win/templates/
+  - text: 'agent-skills-pack: ci-workflow'
+    url: https://github.com/automate-it-all/agent-skills-pack/actions/runs/34056356691
+  - text: 'agent-skills-pack: launch-gif'
+    url: https://github.com/automate-it-all/agent-skills-pack/blob/main/docs/skill-demo.gif
+  - text: 'agent-skills-pack: payment-link'
+    url: https://buy.stripe.com/test_3cI7sK63jbVo5c72VM1B600
+  - text: 'agent-skills-pack: post-devto'
+    url: https://dev.to/automateitall/i-gave-my-agent-ten-ops-skills-and-a-docker-test-for-each-one-3bb4
+  - text: 'agent-skills-pack: post-reddit-selfhosted'
+    url: https://old.reddit.com/r/selfhosted/comments/1w6lmbj/new_project_megathread_week_of_03_sep_2026/p885os8/
+  - text: 'agent-skills-pack: post-x'
+    url: https://x.com/automateallthin/status/2096691620317888824
+  - text: 'agent-skills-pack: repo'
+    url: https://github.com/automate-it-all/agent-skills-pack
+  - text: 'agent-skills-pack: site'
+    url: https://automate-it-all.win/skills/
+  - text: 'audiobooks-player: public-copy'
+    url: https://automate-it-all.win/audiobooks/
+  - text: 'birthday-treasure-hunt: economics'
+    url: https://gumroad.com/products
+  - text: 'data-eng-templates: payment-link-bundle'
+    url: https://buy.stripe.com/test_9B65kCfDT1gKcEz8g61B604
+  - text: 'data-eng-templates: payment-link-dagster-postgres'
+    url: https://buy.stripe.com/test_28E3cugHX4sW7kfeEu1B602
+  - text: 'data-eng-templates: payment-link-dbt-duckdb'
+    url: https://buy.stripe.com/test_3cIcN43Vbf7Aawr67Y1B601
+  - text: 'data-eng-templates: payment-link-kafka-streaming'
+    url: https://buy.stripe.com/test_28EbJ0gHX7F8bAv3ZQ1B603
+  - text: 'data-eng-templates: repo'
+    url: https://github.com/automate-it-all/data-pipeline-kits
+  - text: 'data-eng-templates: site'
+    url: https://automate-it-all.win/templates/
+  - text: 'hermes-smb-agency: sales-page'
+    url: https://automate-it-all.win/hermes/
+  - text: 'pi-shell: public-copy'
+    url: https://github.com/fidel-perez/pi-shell
+  - text: 'science-youtube-manim: episode-0001'
+    url: https://www.youtube.com/watch?v=hZjbj64sokw
+  - text: 'science-youtube-manim: episode-0002'
+    url: https://www.youtube.com/watch?v=gvwm8F6xpm8
+  - text: 'science-youtube-manim: episode-0003'
+    url: https://www.youtube.com/watch?v=e-yp7RYw9-c
+  - text: 'science-youtube-manim: episode-0004'
+    url: https://www.youtube.com/watch?v=VYuljbC-9E4
+  - text: 'science-youtube-manim: short-0001'
+    url: https://www.youtube.com/watch?v=gGdDsC8MHJI
+  - text: 'science-youtube-manim: short-0002'
+    url: https://www.youtube.com/watch?v=4V18Ih8DGDg
+  - text: 'science-youtube-manim: short-0003'
+    url: https://www.youtube.com/watch?v=wcsmop18HtE
+  - text: 'science-youtube-manim: short-0004'
+    url: https://www.youtube.com/watch?v=W-96mRTD-KI
+  - text: 'spanish-open-data-mcp: alertas-sales-page'
+    url: https://automate-it-all.win/datos/alertas/
+  - text: 'spanish-open-data-mcp: alertas-signup-form'
+    url: https://datos.automate-it-all.win/alertas/signup
+  - text: 'spanish-open-data-mcp: alertas-stripe-payment-link'
+    url: https://buy.stripe.com/test_14A4gycrH1gK5c753U1B607
+  - text: 'spanish-open-data-mcp: datos-docs-page'
+    url: https://automate-it-all.win/datos/
+  - text: 'spanish-open-data-mcp: datos-mcp-http'
+    url: https://datos.automate-it-all.win/mcp
+  - text: 'spanish-open-data-mcp: datos-mcp-registry'
+    url: https://registry.modelcontextprotocol.io/v0/servers?search=win.automate-it-all/datos
+  - text: 'spanish-open-data-mcp: datos-payment-link'
+    url: https://buy.stripe.com/test_7sYeVc4Zf1gK33Z8g61B606
+  - text: 'spanish-open-data-mcp: datos-public-api'
+    url: https://datos.automate-it-all.win
+  - text: 'spanish-open-data-mcp: datos-smithery-listing'
+    url: https://smithery.ai/server/automate-it-all/datos
+  - text: 'spanish-open-data-mcp: datos-success-page'
+    url: https://automate-it-all.win/datos/gracias/
+  - text: 'spanish-open-data-mcp: rest-mirror'
+    url: http://100.84.181.42:8421
+  - text: 'todo-app: public-copy'
+    url: https://automate-it-all.win/todo/
+  - text: 'travel-printables: activity-pack-sample-a4'
+    url: https://t.me/AutomateItAll/80
+  - text: 'travel-printables: activity-pack-sample-letter'
+    url: https://t.me/AutomateItAll/81
+  - text: 'x402-data-endpoint: revenue-dashboard'
+    url: http://100.84.181.42:8420/dashboard
