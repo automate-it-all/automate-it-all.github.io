@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Course · Automate It All</title>
+<meta name="description" content="Learn to self-host your own services, from zero">
+<link rel="icon" href="favicon.png">
+<style>
+:root{--c:#37bd28}
+body{margin:0;font:16px/1.5 Inter,system-ui,sans-serif;color:#1a1a1a;background:#fff}
+header{background:var(--c);color:#fff;padding:1rem 1.5rem;display:flex;gap:1rem;align-items:baseline}
+header a{color:#fff;text-decoration:none}
+header .p{opacity:.8;font-size:.9rem;margin-left:auto}
+main{max-width:52rem;margin:0 auto;padding:2rem 1.5rem}
+footer{max-width:52rem;margin:0 auto;padding:2rem 1.5rem;border-top:1px solid #ddd;color:#555;font-size:.9rem}
+footer a{color:var(--c)}
+a.btn{display:inline-block;background:var(--c);color:#fff;padding:.6rem 1rem;border-radius:.4rem;text-decoration:none;font-weight:700}
+</style></head>
+<body>
+<header><a href="https://automate-it-all.win/"><strong>Course</strong></a><a class="p" href="https://automate-it-all.win/">Automate It All</a></header>
+<main>
+<h1>Run your own services on a five-euro box, one lesson at a time</h1>
+<p>For anyone who has a working app and a hosting bill, and wants a Debian
+box they control instead: no PaaS, no vendor lock-in, root access from day
+one. Twelve ten-minute lessons, each one a real terminal recording, each
+one ending with a command that proves the outcome.</p>
+
+<h2>Lesson 1 · Free</h2>
+<iframe width="100%" height="360" style="max-width:640px;display:block"
+ src="https://www.youtube.com/embed/Yzty9buG4dc" title="Lesson 1: Bare VPS to a Public HTTPS Page"
+ frameborder="0" allowfullscreen></iframe>
+
+<h2>The Twelve Lessons</h2>
+<ol>
+<li><strong>Bare VPS to a Public HTTPS Page</strong> — a stranger loads your page over HTTPS; root SSH login is off and a firewall is up. Free.</li>
+<li><strong>Caddy as Your Web Server</strong> — your site serves compressed files with security headers from a Caddyfile you wrote. Free.</li>
+<li><strong>systemd Runs Your Own Service</strong> — your app answers behind Caddy and comes back by itself after a reboot. Free.</li>
+<li><strong>Tailscale: One Private Network</strong> — your laptop reaches the VPS over a tailnet address with no open port.</li>
+<li><strong>Tailscale Funnel: Publish Without a Port</strong> — one service is public through the funnel while the firewall stays shut.</li>
+<li><strong>Docker Compose on the Box</strong> — a container stack starts, stops and survives a reboot as one unit.</li>
+<li><strong>Caddy Reverse Proxy for Many Services</strong> — three services answer on three subdomains from one Caddyfile.</li>
+<li><strong>Hermes: An Agent That Lives on Your Box</strong> — a Hermes agent runs as a systemd unit and logs to the journal.</li>
+<li><strong>The Telegram Gateway</strong> — you send a message from your phone and your box answers.</li>
+<li><strong>One Bot Token per Box</strong> — two boxes answer two chats and neither can read the other's.</li>
+<li><strong>Backups That Actually Restore</strong> — a restic snapshot goes to a remote and you restore it into an empty directory.</li>
+<li><strong>Auto-Shutdown and Monitoring</strong> — the box sleeps when idle, wakes on demand, and tells you when it does.</li>
+</ol>
+
+<h2>Price</h2>
+<p>Lessons 1-3 are free on YouTube. Lessons 4-12, all nine as MP4 files: <strong>&euro;49</strong>, one payment, 30-day refund.</p>
+<p><a class="btn" href="https://buy.stripe.com/test_9B600i2R77F85c7bsi1B608">Buy lessons 4-12, 49 EUR</a></p>
+
+<h2>FAQ</h2>
+<p><strong>What do I need?</strong> A Debian 12 box you can SSH into as root, and a domain whose A record points at it.</p>
+<p><strong>Do the lessons work on any host?</strong> Yes: the commands are identical on a five-euro VPS or an old laptop under your desk.</p>
+<p><strong>How do I know a lesson actually works?</strong> Every command in every lesson runs in a fresh container as part of this course's own test suite before it ships.</p>
+<p><strong>What do I get after paying?</strong> A download link for lessons 4 through 12 as MP4 files, straight after checkout.</p>
+<p><strong>Do you offer a refund?</strong> Yes, within 30 days of purchase: write skills@automate-it-all.win.</p>
+<p><strong>Can I ask about my own setup?</strong> Yes, at skills@automate-it-all.win.</p>
+
+</main>
+<footer>skills@automate-it-all.win · <a href="https://automate-it-all.win/">every product</a> · <a href="https://automate-it-all.win/press/">press room</a> · <a href="https://www.youtube.com/@automateitallwin">youtube</a> · <a href="https://t.me/AutomateItAll">telegram</a> · <a href="https://github.com/automate-it-all">github</a> · <a href="https://www.reddit.com/user/AutomateItAllWin">reddit</a> · <a href="https://x.com/automateallthin">x</a> · <a href="https://fidel-perez.github.io/portfolio/">who builds this</a></footer>
+</body></html>
